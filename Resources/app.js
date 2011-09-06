@@ -29,14 +29,18 @@ var window = Titanium.UI.createWindow();
 window.add(tableView);
 window.open();
 
-//function getYqlUrl(_urlId){
-//	return "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Fwww.sio.no%2Fwps%2Fportal%2F%3FWCM_GLOBAL_CONTEXT%3D%2Fwps%2Fwcm%2Fconnect%2Fmigration%2Fsio%2Fmat%2Bog%2Bdrikke%2Fdagens%2Bmiddag%2Faho'and%20xpath%3D'%2F%2Fdiv%5B%40class%3D%22sioArticleBody%22%5D'"
-//}
-//var webview = Titanium.UI.createWebView({
-//	url : 'ui/example_result.html'
-//});
-//var window = Titanium.UI.createWindow();
-//window.add(webview);
-//window.open({
-//	modal : true
-//});
+tableView.addEventListener('click', function(_e) {
+	//Titanium.Yahoo.yql(getYqlUrl(_e.rowData.urlid),function(e){
+	//	//var data = eval('('+e.data+')');
+    //	Ti.API.info(e);
+	//});
+	var webview = Titanium.UI.createWebView({url : getYqlUrl(_e.rowData.urlid)});
+	window.add(webview);
+	window.open({modal : true});
+	//alert('we pressed: '+_e.rowData.urlid);
+});
+
+function getYqlUrl(_urlId){
+	//return "select * from html where url='http://www.sio.no/wps/portal/?WCM_GLOBAL_CONTEXT=/wps/wcm/connect/migration/sio/mat+og+drikke/dagens+middag/aho' and xpath='//div[@class=\"sioArticleBody\"]'";
+	return "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Fwww.sio.no%2Fwps%2Fportal%2F%3FWCM_GLOBAL_CONTEXT%3D%2Fwps%2Fwcm%2Fconnect%2Fmigration%2Fsio%2Fmat%2Bog%2Bdrikke%2Fdagens%2Bmiddag%2Faho'and%20xpath%3D'%2F%2Fdiv%5B%40class%3D%22sioArticleBody%22%5D'"
+}
