@@ -12,7 +12,7 @@
     <version>0.1</version>
     <publisher>Studentsamskipnaden i Oslo og Akershus</publisher>
     <url>http://www.sio.no</url>
-    <description>Apps for SiO services. More spesific "Todays dinner."</description>
+    <description>Apps for SiO services. More spesific Todays dinner.</description>
     <copyright>2011 by judoole</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
