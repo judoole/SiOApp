@@ -1,64 +1,42 @@
 // this sets the background color of the master UIView (when there are no windows/tab groups on it)
 Titanium.UI.setBackgroundColor('#000');
 
-// create tab group
-var tabGroup = Titanium.UI.createTabGroup();
+var cantinas = 
+[
+{title:"AHO-kafeen", urlid:"aho", hasChild:true},
+{title:"Annas spiseri", urlid:"annas+spiseri", hasChild:true},
+{title:"Forskningsveien", urlid:"forskningsveien", hasChild:true},
+{title:"Frederikke kafe", urlid:"frederikke+kafe+meny", hasChild:true},
+{title:"Hannas spiseri", urlid:"hannas+spiseri", hasChild:true},
+{title:"InforMATeket", urlid:"informateket", hasChild:true},
+{title:"Informatikkafeen", urlid:"informatikkafeen+ny", hasChild:true},
+{title:"Kafe Athletica", urlid:"kafe+athletica", hasChild:true},
+{title:"Kafe Helga", urlid:"kafe+helga", hasChild:true},
+{title:"Kafe Nova", urlid:"kafe+nova", hasChild:true},
+{title:"Kafe Ole", urlid:"kafe+ole", hasChild:true},
+{title:"Kafe Seilduken", urlid:"kafe+seilduken", hasChild:true},
+{title:"Musikkhøgskolens kafe", urlid:"musikkhogskolens+kafe+ny", hasChild:true},
+{title:"Norges idrettshøgskoles kafe", urlid:"nih", hasChild:true},
+{title:"Odontologikafeen", urlid:"odontologikafeen", hasChild:true},
+{title:"Preklinisk kafe", urlid:"preklinisk+kafe", hasChild:true},
+{title:"Spiseriet P35", urlid:"spiseriet+p35", hasChild:true},
+{title:"SV kafeen", urlid:"sv+kafeen+ny", hasChild:true},
+{title:"Veterinærhøgskolens kafe", urlid:"veterinerhogskolen", hasChild:true}
+]
 
+var tableView = Titanium.UI.createTableView({data:cantinas});
+var window = Titanium.UI.createWindow();
+window.add(tableView);
+window.open();
 
-//
-// create base UI tab and root window
-//
-var win1 = Titanium.UI.createWindow({  
-    title:'Tab 1',
-    backgroundColor:'#fff'
-});
-var tab1 = Titanium.UI.createTab({  
-    icon:'KS_nav_views.png',
-    title:'Tab 1',
-    window:win1
-});
-
-var label1 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 1',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
-});
-
-win1.add(label1);
-
-//
-// create controls tab and root window
-//
-var win2 = Titanium.UI.createWindow({  
-    title:'Tab 2',
-    backgroundColor:'#fff'
-});
-var tab2 = Titanium.UI.createTab({  
-    icon:'KS_nav_ui.png',
-    title:'Tab 2',
-    window:win2
-});
-
-var label2 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 2',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
-});
-
-win2.add(label2);
-
-
-
-//
-//  add tabs
-//
-tabGroup.addTab(tab1);  
-tabGroup.addTab(tab2);  
-
-
-// open tab group
-tabGroup.open();
+//function getYqlUrl(_urlId){
+//	return "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Fwww.sio.no%2Fwps%2Fportal%2F%3FWCM_GLOBAL_CONTEXT%3D%2Fwps%2Fwcm%2Fconnect%2Fmigration%2Fsio%2Fmat%2Bog%2Bdrikke%2Fdagens%2Bmiddag%2Faho'and%20xpath%3D'%2F%2Fdiv%5B%40class%3D%22sioArticleBody%22%5D'"
+//}
+//var webview = Titanium.UI.createWebView({
+//	url : 'ui/example_result.html'
+//});
+//var window = Titanium.UI.createWindow();
+//window.add(webview);
+//window.open({
+//	modal : true
+//});
