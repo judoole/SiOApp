@@ -10,7 +10,7 @@ var cantinas =
 {title:"Hannas spiseri", urlid:"hannas%2Bspiseri", hasChild:true},
 {title:"InforMATeket", urlid:"informateket", hasChild:true},
 {title:"Informatikkafeen", urlid:"informatikkafeen%2Bny", hasChild:true},
-{title:"Kafe Athletica", urlid:"kafe+athletica", hasChild:true},
+{title:"Kafe Athletica", urlid:"kafe%2Bathletica", hasChild:true},
 {title:"Kafe Helga", urlid:"kafe%2Bhelga", hasChild:true},
 {title:"Kafe Nova", urlid:"kafe%2Bnova", hasChild:true},
 {title:"Kafe Ole", urlid:"kafe%2Bole", hasChild:true},
@@ -33,28 +33,17 @@ tableView.addEventListener('click', function(_e) {
 	var xhr = Titanium.Network.createHTTPClient();
 	xhr.onload = function(){
 		var response = this.responseText;
-		Ti.API.info("response = " + response);
-		//var doc = this.responseXML.documentElement;
-		//var results = doc.getElementsByTagName("results");
-		//var results = doc.getElementsByClassName("sioArticleBody");
-		//var results = elements.item(0);
-		//Ti.API.info("results = " + results);
-		
+		var menuWindow = Titanium.UI.createWindow({title:'Meny',});
+		var closeButton = Titanium.UI.createButton({title:'Lukk', style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN});
+		menuWindow.setLeftNavButton(closeButton);
+		closeButton.addEventListener('click',function(){menuWindow.close();});
 		var webview = Titanium.UI.createWebView({html:response});
-		window.add(webview);
-		window.open({modal : true});
+		menuWindow.add(webview);
+		menuWindow.open({modal:true});
 	}
 	
 	xhr.open('GET',getYqlUrl(_e.rowData.urlid));
 	xhr.send();
-	//Titanium.Yahoo.yql(getYqlUrl(_e.rowData.urlid),function(e){
-	//	//var data = eval('('+e.data+')');
-    //	Ti.API.info(e);
-	//});
-	
-	//var webview = Titanium.UI.createWebView({url : getYqlUrl(_e.rowData.urlid)});
-	//window.add(webview);
-	//window.open({modal : true});
 });
 
 function getYqlUrl(_urlId){
