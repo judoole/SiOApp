@@ -1,0 +1,13 @@
+buildscript {
+  repositories {
+    maven { url "http://oss.jfrog.org/repo" }
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.ratpack-framework:ratpack-gradle:0.9.0-SNAPSHOT'
+  }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
+}
