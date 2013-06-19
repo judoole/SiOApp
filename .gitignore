@@ -7,4 +7,5 @@ build
 *.iml
 *.ipr
 .idea/
+out/
 build.log
