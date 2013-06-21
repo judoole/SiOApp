@@ -18,5 +18,7 @@ ratpack {
 
             get(TemplateRenderer).render "cantina.html", title: cantina.name, body: body
         }
+
+        assets "public"
     }
 }
