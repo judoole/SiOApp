@@ -1,1 +1,1 @@
-web: site/build/install/site/bin/site site/build/install/site/build.groovy
+web: site/build/install/site/bin/site site/build/install/site/ratpack.groovy
