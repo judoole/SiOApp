@@ -1,1 +1,1 @@
-web: site/build/install/site/bin/site site/build/install/site/ratpack.groovy
+web: site/build/install/site/bin/site site/build/install/site/ratpack.groovy --http.port=5050
