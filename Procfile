@@ -1,1 +1,1 @@
-web: site/build/install/site/bin/site site/build/install/site/ratpack.groovy -Dratpack.port=$PORT
+web: site/build/install/site/bin/site site/build/install/site/ratpack.groovy
