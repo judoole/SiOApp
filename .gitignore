@@ -1,12 +1,3 @@
 .DS_Store
 tmp
-build
-.project
-.settings
-.fastdev.lock
-.gradle
-*.iml
-*.ipr
-.idea/
-out/
-build.log
+Gemfile.lock
