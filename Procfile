@@ -1,1 +1,1 @@
-web: site/build/install/site/bin/site site/build/install/site/ratpack.groovy
+web: bundle exec rackup config.ru -p $PORT
