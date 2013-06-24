@@ -15,6 +15,7 @@ class Cantina
 end
 
 class MyApp < Sinatra::Base
+	set :bind, '0.0.0.0'
 	cantinas = [Cantina.new("Kafe Helga", "kafe+helga", 0),
             Cantina.new("AHO-kafeen", "aho", 1),
             Cantina.new("Annas spiseri", "annas+spiseri", 2),
@@ -46,7 +47,8 @@ class MyApp < Sinatra::Base
 		# uri = "http://www.sio.no/wps/portal/?WCM_GLOBAL_CONTEXT=/wps/wcm/connect/migration/sio/mat+og+drikke/dagens+middag/annas+spiseri"
 	  	doc = Nokogiri::HTML(open(uri))
 	  	#doc.encoding = 'ISO-8859-1'
-	  	"This is cantina: " + doc.css('div.sioArticleBodyText')[0].to_xml
+	  	erb :detailspage, :locals => {:content =>doc.css('div.sioArticleBodyText')[0].to_xml}
+	  	#doc.css('div.sioArticleBodyText')[0].to_xml
 	end
 end
 

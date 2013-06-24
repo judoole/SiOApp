@@ -1,1 +1,171 @@
-This is the real hello world
+
+<!DOCTYPE html>
+<html lang="no">
+<head>
+	<meta charset="utf-8" />
+	<title>ListApp</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+	<style>
+		img.fullscreen {
+			max-height: 100%;
+			max-width: 100%;
+		}
+		p{
+			white-space: pre;
+		}
+	</style>
+	<script type="text/javascript">
+	// Listen for any attempts to call changePage().
+	/*$(document).bind("pagebeforechange", function(e, data) {
+		// We only want to handle changePage() calls where the caller is asking to load a page by URL.
+		if (typeof data.toPage === "string") {
+			console.log(data);
+			//$.mobile.loadPage("/cantina/2", true, {pageContainer: $('#container')})
+			//$('#cantina').trigger('pagecreate');
+			$("#container").load("/cantina/2");
+			//e.preventDefault();		
+		}
+	});*/
+	function loadDetails(cantinaId){
+		//$("#container").load("/cantina/" + cantinaId);
+		$.mobile.changePage("/cantina/"+cantinaId);
+	}
+	</script>
+</head>
+<body>
+<div data-role="page" id="photos">
+	<header data-role="header">
+		<h1>SiO - Dagens middag</h1>
+	</header>
+	<article data-role="content">
+		<ul data-role="listview"  data-filter="true">
+			<li>
+				<a onClick="loadDetails(2)">
+				<h1>Arkitektur- og designhøgskolens kafe</h1>
+				</a>
+			</li>
+			<li>
+				<a onClick="loadDetails(0)">
+				<h1>Annas spiseri</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#cantina?id=annas+spiseri">
+				<h1>Forskningsveien</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Frederikke kafé</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Hannas spiseri</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>InforMATeket</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Kafe Andrea</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Kafe Helga</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Kafe Nova</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Kafe Ole</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Musikkhøgskolens kafe</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Norges idrettshøgskoles kafe</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Odontologikafeen</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Preklinisk kafe</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Kafe Seilduken</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>SV kafeen</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Spiseriet P35</h1>
+				</a>
+			</li>
+			<li>
+				<a href="#dog">
+				<h1>Norges veterinærhøgskole</h1>
+				</a>
+			</li>
+		</ul>
+	</article>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+				<li><a href="#photos" data-icon="home">Hjem</a></li>
+				<li><a href="#info" data-icon="info">Info</a></li>
+			</ul>
+		</nav>
+	</footer>
+</div><!-- Page Photos -->
+
+	<div data-role="page" id="dog">
+		<header data-role="header">
+			<h1>Min Pin</h1>
+			<a href="#photos" data-icon="arrow-l" data-iconpos="notext">Back</a>
+		</header>
+	</div>
+
+	<div data-role="page" id="cantina">
+		<header data-role="header">
+			<h1>Yhais</h1>
+			<a href="#photos" data-icon="arrow-l" data-iconpos="notext">Back</a>
+		</header>
+		 <div data-role="content" id="container">
+	</div>
+	
+	<div data-role="page" id="info">
+		<header data-role="header">
+			<h1>Info</h1>
+			<a href="#photos" data-icon="arrow-l" data-iconpos="notext">Back</a>
+		</header>
+		<p>Mye kan sies om mangt. Dette er til informasjon.
+	</div><!-- Page Gummy Bears --> 
+
+</body>
+</html>
