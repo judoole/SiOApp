@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-	<meta charset="utf-8" />
-	<title>ListApp</title>
+	<meta charset="iso-8859" />
+	<base href="http://www.sio.no">
+	<title><%= name %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
@@ -11,9 +12,16 @@
 <body>
 <div data-role="page" id="cantina">
 	<header data-role="header">
-		<h1>I have a header</h1>
-		<a href="#photos" data-icon="arrow-l" data-iconpos="notext">Back</a>
+		<h1><%= name %></h1>
 	</header>
 	 <%= content %>
+	 <footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+				<li><a href="#photos" data-icon="home">Hjem</a></li>
+				<li><a href="#info" data-icon="info">Info</a></li>
+			</ul>
+		</nav>
+	</footer>
 </div>
 </body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+	<meta charset="iso-8859" />
+	<title>SiO Dagens middag</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+	<style>
+		img.fullscreen {
+			max-height: 100%;
+			max-width: 100%;
+		}
+		p{
+			white-space: pre;
+		}
+	</style>
+	<script type="text/javascript">
+	function loadDetails(cantinaId){
+		$.mobile.changePage("/cantina/"+cantinaId);
+	}
+	</script>
+</head>
+<body>
+<div data-role="page" id="photos">
+	<header data-role="header">
+		<h1>SiO - Dagens middag</h1>
+	</header>
+	<article data-role="content">
+		<ul data-role="listview">
+			<% for @cantina in allCantinas %>
+			<li>
+				<a onClick="loadDetails(<%= @cantina.id %>)">
+					<h1><%= @cantina.name %></h1>
+				</a>
+			</li>
+  			<% end %>
+		</ul>
+	</article>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+				<li><a href="#photos" data-icon="home">Hjem</a></li>
+				<li><a href="#info" data-icon="info">Info</a></li>
+			</ul>
+		</nav>
+	</footer>
+</div>
+	
+<div data-role="page" id="info">
+	<header data-role="header">
+		<h1>Info</h1>
+		<a href="#photos" data-icon="arrow-l" data-iconpos="notext">Back</a>
+	</header>
+	<p>Mye kan sies om mangt. Dette er til informasjon.
+</div>
+
+</body>
+</html>

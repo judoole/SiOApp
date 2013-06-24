@@ -12,6 +12,8 @@ class Cantina
 	end
 
 	attr_reader :urlId
+	attr_reader :id
+	attr_reader :name
 end
 
 class MyApp < Sinatra::Base
@@ -37,18 +39,16 @@ class MyApp < Sinatra::Base
             Cantina.new("Veterinærhøgskolens kafe", "veterinerhogskolen", 18)]
 
 	get '/' do
-	  File.read(File.join('public', 'index.html'))
+	  	erb :index, :locals => {:allCantinas => cantinas}
 	end
 
 	get '/cantina/:id' do
 		theid = params[:id].to_i
-		urlId = cantinas[theid].urlId
-		uri = "http://www.sio.no/wps/portal/?WCM_GLOBAL_CONTEXT=/wps/wcm/connect/migration/sio/mat+og+drikke/dagens+middag/" + urlId
-		# uri = "http://www.sio.no/wps/portal/?WCM_GLOBAL_CONTEXT=/wps/wcm/connect/migration/sio/mat+og+drikke/dagens+middag/annas+spiseri"
+		cantina = cantinas[theid]
+		uri = "http://www.sio.no/wps/portal/?WCM_GLOBAL_CONTEXT=/wps/wcm/connect/migration/sio/mat+og+drikke/dagens+middag/" + cantina.urlId
 	  	doc = Nokogiri::HTML(open(uri))
 	  	#doc.encoding = 'ISO-8859-1'
-	  	erb :detailspage, :locals => {:content =>doc.css('div.sioArticleBodyText')[0].to_xml}
-	  	#doc.css('div.sioArticleBodyText')[0].to_xml
+	  	erb :detailspage, :locals => {:content => doc.css('div.sioArticleBodyText')[0].to_xml, :name => cantina.name}
 	end
 end
 
