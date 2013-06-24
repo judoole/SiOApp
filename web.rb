@@ -48,10 +48,9 @@ class MyApp < Sinatra::Base
 		theid = params[:id].to_i
 		cantina = cantinas[theid]
 		uri = "http://www.sio.no/wps/portal/?WCM_GLOBAL_CONTEXT=/wps/wcm/connect/migration/sio/mat+og+drikke/dagens+middag/" + cantina.urlId
-	  	doc = Nokogiri::HTML(open(uri))
+	  	doc = Nokogiri::HTML(open(uri))	  	
 	  	body = doc.css('div.sioArticleBodyText')[0].to_xml
-	  	body = body.gsub /style="[^"]*"/, ""
-	  	#doc.encoding = 'ISO-8859-1'
+	  	#body = body.gsub /style="[^"]*"/, ""	  	
 	  	erb :detailspage, :locals => {:content => body, :name => cantina.name}
 	end
 end
