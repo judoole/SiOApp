@@ -1,4 +1,6 @@
 # encoding: utf-8
+# coding: utf-8
+
 require 'sinatra'
 require 'sinatra/reloader'
 require 'open-uri'
@@ -25,7 +27,7 @@ class MyApp < Sinatra::Base
             Cantina.new("Frederikke kafe", "frederikke+kafe+meny", 4),
             Cantina.new("Hannas spiseri", "hannas+spiseri", 5),
             Cantina.new("InforMATeket", "informateket", 6),
-            Cantina.new("Informatikkafeen", "informatikkafeen%2Bny", 7),
+            Cantina.new("Informatikkafeen", "informatikkafeen+ny", 7),
             Cantina.new("Kafe Athletica", "kafe+athletica", 8),
             Cantina.new("Kafe Nova", "kafe+nova", 9),
             Cantina.new("Kafe Ole", "kafe+ole", 10),
@@ -47,8 +49,10 @@ class MyApp < Sinatra::Base
 		cantina = cantinas[theid]
 		uri = "http://www.sio.no/wps/portal/?WCM_GLOBAL_CONTEXT=/wps/wcm/connect/migration/sio/mat+og+drikke/dagens+middag/" + cantina.urlId
 	  	doc = Nokogiri::HTML(open(uri))
+	  	body = doc.css('div.sioArticleBodyText')[0].to_xml
+	  	body = body.gsub /style="[^"]*"/, ""
 	  	#doc.encoding = 'ISO-8859-1'
-	  	erb :detailspage, :locals => {:content => doc.css('div.sioArticleBodyText')[0].to_xml, :name => cantina.name}
+	  	erb :detailspage, :locals => {:content => body, :name => cantina.name}
 	end
 end
 
