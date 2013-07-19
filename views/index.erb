@@ -9,15 +9,6 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
-	<style>
-		img.fullscreen {
-			max-height: 100%;
-			max-width: 100%;
-		}
-		p{
-			white-space: pre;
-		}
-	</style>
 	<script type="text/javascript">
 	function loadDetails(cantinaId){
 		$.mobile.changePage("/cantina/"+cantinaId);
@@ -25,7 +16,7 @@
 	</script>
 </head>
 <body>
-<div data-role="page" id="photos">
+<div data-role="page" id="cantinas">
 	<header data-role="header">
 		<h1>SiO - Dagens middag</h1>
 	</header>
@@ -43,7 +34,7 @@
 	<footer data-role="footer" data-position="fixed">
 		<nav data-role="navbar">
 			<ul>
-				<li><a href="#photos" data-icon="home">Hjem</a></li>
+				<li><a href="#cantinas" data-icon="home">Hjem</a></li>
 				<li><a href="#info" data-icon="info">Info</a></li>
 			</ul>
 		</nav>
@@ -53,9 +44,21 @@
 <div data-role="page" id="info">
 	<header data-role="header">
 		<h1>Info</h1>
-		<a href="#photos" data-icon="arrow-l" data-iconpos="notext">Back</a>
 	</header>
-	<p>Mye kan sies om mangt. Dette er til informasjon.
+	<p>SiO Dagens middag er en app laget for å lettere finne dagens middag hos Studensamskipnaden i Oslo sine kantiner. </p>
+	<p><strong>SiO har ingen tilknytning til utviklinga av appen.</strong></p>
+	<p>Appen fungerer ved at den besøker <a href="http://sio.no">sio.no</a> og henter informasjon om dagens middag og gjør den mer lesbar for mobile enheter.</p>
+	<p>Utvikler av appen er meg: Ole Christian Langfjæran</p>
+	<p>Twitter: <a href="https://twitter.com/judoole">@judoole</a></p>
+	<p>Kildekode: <a href="https://github.com/judoole/SiOApp">github.com/judoole/SiOApp</a></p>
+	<footer data-role="footer" data-position="fixed">
+		<nav data-role="navbar">
+			<ul>
+				<li><a href="#cantinas" data-icon="home">Hjem</a></li>
+				<li><a href="#info" data-icon="info">Info</a></li>
+			</ul>
+		</nav>
+	</footer>
 </div>
 
 </body>
