@@ -1,1 +1,1 @@
-PoC on Todays dinner from http://sio.no
+Screenscraping webapp for SiO.no's Todays Dinner.
