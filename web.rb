@@ -28,7 +28,7 @@ class MyApp < Sinatra::Base
             Cantina.new("Hannas spiseri", "hannas+spiseri", 5),
             Cantina.new("InforMATeket", "informateket", 6),
             Cantina.new("Informatikkafeen", "informatikkafeen+ny", 7),
-            Cantina.new("Kafe Athletica", "kafe+athletica", 8),
+            Cantina.new("Kafe Andrea", "kafe+andrea", 8),
             Cantina.new("Kafe Nova", "kafe+nova", 9),
             Cantina.new("Kafe Ole", "kafe+ole", 10),
             Cantina.new("Kafe Seilduken", "kafe+seilduken", 11),
@@ -48,7 +48,8 @@ class MyApp < Sinatra::Base
 		theid = params[:id].to_i
 		cantina = cantinas[theid]
 		uri = "http://www.sio.no/wps/portal/?WCM_GLOBAL_CONTEXT=/wps/wcm/connect/migration/sio/mat+og+drikke/dagens+middag/" + cantina.urlId
-	  	doc = Nokogiri::HTML(open(uri))	  	
+		thecontent = open(uri).read
+	  	doc = Nokogiri::HTML(thecontent)	  		  	
 	  	body = doc.css('div.sioArticleBodyText')[0].to_xml
 	  	#body = body.gsub /style="[^"]*"/, ""	  	
 	  	erb :detailspage, :locals => {:content => body, :name => cantina.name}
